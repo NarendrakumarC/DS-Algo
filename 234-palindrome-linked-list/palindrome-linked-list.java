@@ -17,11 +17,12 @@ class Solution {
         middle.next = null; // cut the first and second halves
         slow = reverse(slow); // reverse 2nd half
         // compare two halves
-        while(slow!=null && fast.val == slow.val){
+        while(slow!=null){
+            if(fast.val != slow.val) return false;
             fast = fast.next;
             slow = slow.next;
         }   
-        if(slow != null) return false;
+    //    if(slow != null) return false;
         return true;
     }
     private static ListNode findMiddle(ListNode head){
