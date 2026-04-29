@@ -38,6 +38,7 @@ class LRUCache {
     }
 
     private void addBeforeTail(Node nn) {
+        // find tail-1 th node
         Node tm1 = tail.prev;
         nn.next = tail;
         tail.prev = nn;
