@@ -19,9 +19,11 @@ class Solution {
          if(p == null && q == null){
             return true;
          }
+         // return true if both nodes are identical 
          if(p!= null && q!=null && p.val == q.val){
             return isSameTree(p.left,q.left) && isSameTree(p.right, q.right);
          }
+         // If not identical
          return false;
     }
 }
