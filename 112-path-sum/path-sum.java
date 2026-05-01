@@ -20,7 +20,7 @@ class Solution {
             return targetSum - root.val ==0;
         }
         targetSum = targetSum - root.val;
-
+        // Navigate till left leaf and right leaf node
         return hasPathSum(root.left, targetSum) || hasPathSum(root.right, targetSum);
     }
 }
