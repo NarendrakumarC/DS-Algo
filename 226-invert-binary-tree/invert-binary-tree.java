@@ -18,6 +18,7 @@ class Solution {
         if(root == null){
             return null;
         }
+        //pre order traversal
         // swap left and right sub tree elements
         TreeNode temp = root.left;
         root.left = root.right;
