@@ -13,6 +13,17 @@
  *     }
  * }
  */
+ /*
+
+✅ Fix: Store (row, value) using Pair
+You CANNOT solve vertical traversal without row information.
+
+1️⃣ sort list
+2️⃣ loop over sorted list
+3️⃣ create column list
+4️⃣ add to answer
+
+*/
 class Solution {
     
 // helper class to store row + value
@@ -43,8 +54,8 @@ class Solution {
             // sort by row first, then value
             Collections.sort(list, (a, b) -> {
                 if (a.row != b.row)
-                    return a.row - b.row;
-                return a.val - b.val;
+                    return a.row - b.row; // top to bottom
+                return a.val - b.val;  // same row → smaller value first
             });
 
             // extract only values
@@ -63,8 +74,16 @@ class Solution {
         // base case 
         if (node == null) return;
 
-        hm.computeIfAbsent(col, k -> new ArrayList<>())
-          .add(new Pair(row, node.val));
+     //   hm.computeIfAbsent(col, k -> new ArrayList<>())
+     //     .add(new Pair(row, node.val));
+
+        if(hm.containsKey(col)){
+            hm.get(col).add(new Pair(row, node.val));
+        }else{
+            List<Pair> list = new ArrayList<>();
+            list.add(new Pair(row, node.val));
+            hm.put(col,list);
+        }  
 
         leftmost = Math.min(leftmost, col);
         rightmost = Math.max(rightmost, col);
@@ -72,6 +91,4 @@ class Solution {
         preOrder(node.left, row + 1, col - 1);
         preOrder(node.right, row + 1, col + 1);
     }
-
-
 }
