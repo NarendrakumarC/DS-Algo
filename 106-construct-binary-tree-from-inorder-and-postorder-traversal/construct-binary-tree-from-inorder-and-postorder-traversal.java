@@ -32,7 +32,8 @@ private static TreeNode solve(int []in, int inst, int inend, int []post, int pst
         int count = indx-inst;
 
         // make a call for creation of left and right subtree
-        n.left = solve(in, inst, indx, post, pst, pst+count-1);
+        // for left sub tree start to root indx-1 and for right sub tree root indx+1 to end in inorder array
+        n.left = solve(in, inst, indx-1, post, pst, pst+count-1);
         n.right = solve(in, indx+1, inend, post, pst+count, pend-1);
 
         return n;
