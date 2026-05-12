@@ -23,6 +23,7 @@ class Solution {
         return isBST;
     }
     private void inOrder(TreeNode node){
+        // base case if root is null , then it is valid BST
         if(node == null) return;
         inOrder(node.left);
         // In Area check if prev < node.val update prev then continue else false  
