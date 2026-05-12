@@ -17,7 +17,9 @@ class Solution {
     public TreeNode sortedArrayToBST(int[] nums) {
         return solve(nums, 0 , nums.length-1);
     }
+    // construct BST using binary search concept and validate BST
     private static TreeNode solve(int []arr, int lo, int hi){
+        // base case for binary search concept
         if(lo > hi) return null;
         int mid = lo + (hi - lo)/2;
         TreeNode node = new TreeNode(arr[mid]);
