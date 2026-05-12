@@ -1,5 +1,8 @@
 class Solution {
     public int numTrees(int n) {
+        // initialize dp with n+1
+        // number of left nodes = currentRoot -1
+        // number of right nodes = all nodes - currentRoot
         int []dp = new int[n+1];
         for(int i=0;i<=n;i++){
             dp[i] =1;
