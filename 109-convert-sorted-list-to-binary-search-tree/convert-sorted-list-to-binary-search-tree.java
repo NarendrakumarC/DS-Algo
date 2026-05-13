@@ -28,7 +28,9 @@ class Solution {
         List<Integer> nums = convertLinkedListToArrayList(head);
         return solve(nums, 0, nums.size()-1);
     }
+    // Construct BST using binary search concept and validate BST
     private static TreeNode solve(List<Integer> arr, int lo, int hi){
+        // base case as per binary search concept
         if(lo > hi) return null;
         int mid = lo + (hi - lo)/2;
         TreeNode root = new TreeNode(arr.get(mid));
