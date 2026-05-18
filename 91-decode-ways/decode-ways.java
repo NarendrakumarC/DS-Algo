@@ -7,7 +7,7 @@ class Solution {
         int n = s.length();
         int dp[] = new int[n];
         Arrays.fill(dp,-1);
-        //Always pass last index of string because index are 0-based i,e : LSB
+        //Always pass last index of string because indexs are 0-based i,e : LSB
         return decode(n-1,s,dp);
     }
     private int decode(int pos, String str, int []dp){
