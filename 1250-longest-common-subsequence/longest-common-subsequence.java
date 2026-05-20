@@ -4,9 +4,10 @@ class Solution {
         int m = text2.length();
         int dp[][] = new int[n][m];
         // Loop through each row and fill it with -1
-        for (int[] row : dp) {
+      /*  for (int[] row : dp) {
             Arrays.fill(row, -1);
-        }
+        } */
+        Arrays.stream(dp).forEach(row -> Arrays.fill(row, -1));
         // n-1 and m-1 are last index
         return lcs(text1, text2, n-1, m-1, dp);
     }
