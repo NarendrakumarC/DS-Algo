@@ -98,17 +98,42 @@ Backtracking decisions:
 */
 class Solution {
     public ListNode removeNodes(ListNode head) {
-        if(head == null || head.next == null){
-            return head; // base case;
-        }
-        // process rest of list
-        head.next = removeNodes(head.next);
+       //1. Reverse the list
+       head = reverse(head);
+       //2. Traverse and remove smaller nodes
+       ListNode curr = head;
+       int max = curr.val;
 
-        // if next node has greather value, remove current
-        //Input: 5 → 2 → 13 → 3 → 8
-        if(head.next != null && head.next.val > head.val){
-            return head.next; // skip curr node and return max 
+       while(curr != null && curr.next != null){
+            // 5->3->13
+            // curr = 13 , curr.next = 3 , traverse right to left , if 3 < 13 then remove 3 node
+            if(curr.next.val < max){
+                // Just move the pointers to next to next node
+                curr.next = curr.next.next ;  // curr.next = 5 is assigned
+            }else{
+                // suppose if 14 < 13 - false means move curr to next node ie 14, exclude 13
+                curr = curr.next;
+                // update max value from updated curr node
+                max= curr.val;
+            }
+       }
+       // 3. reverse back
+       return reverse(head);
+    }
+    private ListNode reverse(ListNode head){
+        ListNode prev = null;
+        while(head != null){
+            // 1 -> 2 -> 3  prev -> head -> next
+            ListNode next = head.next;
+            //since prev is null , need to point to next for reverse right to left
+            head.next  = prev;
+            //Already prev = null is assigned to next node, now prev is unassigned provide link from 
+            // from head to prev
+            prev = head;
+            //now head is un assigned , create link from next node to head node 
+            head = next;
         }
-        return head;
+        // return prev because head is travers from left to right but prev hold traverse from right to left, just exchange the pointers
+        return prev;
     }
 }
