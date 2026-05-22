@@ -17,6 +17,7 @@ class Solution {
                 if(hs.contains(num)){
                     int curlen = String.valueOf(num).length();
                     maxlen = Math.max(maxlen, curlen);
+                    break;
                 }
                 num /= 10;
             }
