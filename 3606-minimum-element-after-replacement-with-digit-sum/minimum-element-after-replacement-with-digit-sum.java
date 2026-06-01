@@ -1,6 +1,7 @@
 class Solution {
     public int minElement(int[] nums) {
         int n = nums.length;
+        // Initialize with max value
      int min=Integer.MAX_VALUE;
         for(int i=0;i<n;i++){
             int csum =0;
