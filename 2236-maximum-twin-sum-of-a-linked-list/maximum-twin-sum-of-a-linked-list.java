@@ -7,6 +7,14 @@
  *     ListNode(int val) { this.val = val; }
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
+
+ We need to pair nodes from opposite ends of the linked list:
+(head + tail), (2nd + 2nd last), 
+Instead of using extra space, we optimize by:
+
+1. Finding the middle using two pointers
+2. Reversing the first half while traversing
+3. Then matching both halves directly
  */
 class Solution {
     public int pairSum(ListNode head) {
