@@ -56,7 +56,7 @@ class Solution {
                 return false;
             }
         }
-        // same submatrix
+        //for same submatrix
         int r = i - i % 3;
         int c = j - j % 3;
         for(int x=0; x<3; x++){
